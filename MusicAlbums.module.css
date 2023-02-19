@@ -1,7 +1,9 @@
 h2 {
-    font-size: 40px;
-    font-family: cursive;
+
+    font-family:cursive;
     text-align: center;
+    padding: 20px;
+    font-size: 30px;
 }
 
 .musicList {
