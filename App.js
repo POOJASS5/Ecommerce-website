@@ -1,12 +1,12 @@
 
 import React from "react";
 import Header from "./header/Header";
-
 import Footer from "./footer/Footer";
 import { Redirect, Route } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Store from "./pages/Store";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   const productsArr = [
@@ -49,6 +49,9 @@ function App() {
       </Route>
       <Route path="/about">
         <About />
+      </Route>
+      <Route path="/contact">
+        <ContactUs />
       </Route>
       {/* <Section productList={productsArr} /> */}
       <Footer />

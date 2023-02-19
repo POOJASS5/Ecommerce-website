@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
 import HeaderCartButton from "./HeaderCartButton";
-
 const Header = () => {
   return (
     <React.Fragment>
@@ -18,6 +17,9 @@ const Header = () => {
             </li>
             <li>
               <Link to="/about">ABOUT</Link>
+            </li>
+            <li>
+              <Link to="/contact">CONTACT-US</Link>
             </li>
           </ul>
         </nav>
