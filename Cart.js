@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import cartContext from "../store/cart-Context";
-
 import classes from "./Cart.module.css";
 
 import CartItem from "./CartItem";
 
-const Cart = () => {
+const Cart = (props) => {
   const cartCtx = useContext(cartContext);
   const cartElements = cartCtx.item;
 
@@ -17,7 +16,9 @@ const Cart = () => {
   return ReactDOM.createPortal(
     <div className={classes.overlay}>
       <span className={classes.title}>CART</span>
-      <button className={classes.delete}>X</button>
+      <button className={classes.delete} onClick={props.onClick}>
+        X
+      </button>
       <div className={classes.heading}>
         <span className={classes.item}>ITEM</span>
         <span className={classes.price}>PRICE</span>
