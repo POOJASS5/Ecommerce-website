@@ -5,7 +5,12 @@
 }
 
 .div h1 {
+    margin: 0;
+    padding: 100px 0 20px 0;
+    background-color: gray;
     font-size: 100px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .div button {
@@ -18,11 +23,16 @@
     font-size: 30px;
     font-weight: bold;
 }
-
 .play-button {
     border-radius: 50%;
 }
 
 .tourInfo {
     margin-bottom: 80px;
+}
+
+.section h2 {
+    font-size: 40px;
+    font-family: cursive;
+    text-align: center;
 }

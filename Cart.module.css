@@ -40,28 +40,28 @@
     font-weight: bold;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
-  
+
   .item {
-    flex-basis: 49%;
+    flex-basis: 43%;
     text-align: center;
   }
-  
+
   .price {
-    flex-basis: 15%;
-    text-align: left;
+    flex-basis: 18%;
+    text-align: center;
   }
-  
+
   .quantity {
-    flex-basis: 36%;
-    text-align: left;
+    flex-basis: 22%;
+    text-align: center;
   }
-  
+
   .total {
     /* background-color: gray; */
     margin-top: 40px;
     text-align: right;
   }
-
+  
   .total span {
     margin: 25px;
     font-size: 25px;
@@ -86,14 +86,12 @@
     border-radius: 5px;
     margin-top: 30px;
   }
-
   .delete {
     padding: 0 20px 0 20px;
     font-size: 30px;
     border-radius: 5px;
     background-color: #38f1b3;
   }
-
   .overlay button:active{
     transform: scale(0.95);
   }

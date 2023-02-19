@@ -4,12 +4,9 @@ const About = () => {
   return (
     <section className={classes.section}>
       <h1>The Generics</h1>
-      <h2>About</h2>
+      <h2>ABOUT</h2>
       <div>
-        <img
-          src="https://prasadyash2411.github.io/ecom-website/img/Band%20Members.png"
-          alt="Musical Band"
-        />
+        <img src="about/about.png" alt="Musical Band" />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec
@@ -46,5 +43,4 @@ const About = () => {
     </section>
   );
 };
-
 export default About;

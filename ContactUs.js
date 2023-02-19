@@ -1,20 +1,16 @@
 import React, { useRef } from "react";
 import classes from "./ContactUs.module.css";
-
 const ContactUs = () => {
   const name = useRef();
   const email = useRef();
   const phoneNumber = useRef();
-
   const onSubmitHandler = (e) => {
     e.preventDefault();
-
     const userData = {
       name: name.current.value,
       email: email.current.value,
       phoneNumber: phoneNumber.current.value,
     };
-
     fetch(
       "https://connect-database-4a41b-default-rtdb.firebaseio.com/userForm.json",
       {
@@ -30,7 +26,7 @@ const ContactUs = () => {
     phoneNumber.current.value = "";
   };
   return (
-    <React.Fragment>
+    <div className={classes.contact}>
       <h1>The Generics</h1>
       <form className={classes.form} onSubmit={onSubmitHandler}>
         <label htmlFor="name">Name</label>
@@ -43,7 +39,7 @@ const ContactUs = () => {
           <button type="submit">Submit</button>
         </div>
       </form>
-    </React.Fragment>
+    </div>
   );
 };
 

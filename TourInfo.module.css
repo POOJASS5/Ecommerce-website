@@ -7,22 +7,25 @@
     margin: auto;
     margin-bottom: 20px;
 }
-
 .div span {
     padding: 10px;
     margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .date {
     flex: 1;
+    font-size: 20px;
 }
 
 .place {
     flex: 1;
+    opacity: 0.55;
 }
 
 .venue {
     flex: 2;
+    opacity: 0.55;
 }
 
 .div button {

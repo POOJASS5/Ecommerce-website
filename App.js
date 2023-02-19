@@ -1,12 +1,16 @@
 
 import React from "react";
 import Header from "./header/Header";
+
 import Footer from "./footer/Footer";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Store from "./pages/Store";
 import ContactUs from "./pages/ContactUs";
+import { ShowCartContextProvider } from "./store/showCart-context";
+import { ProductContextProvider } from "./store/product-context";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   const productsArr = [
@@ -35,21 +39,39 @@ function App() {
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
     },
   ];
+
   return (
     <React.Fragment>
-      <Header />
-      <Route path="">
+      <ShowCartContextProvider>
+        <Header />
+      </ShowCartContextProvider>
+
+      <Route path="/" exact>
         <Redirect to="/home" />
       </Route>
+
       <Route path="/home">
         <Home />
       </Route>
-      <Route path="/store">
-        <Store productList={productsArr} />
-      </Route>
+
+      <Switch>
+        <ProductContextProvider>
+          <ShowCartContextProvider>
+            <Route path="/store" exact>
+              <Store productList={productsArr} />
+            </Route>
+          </ShowCartContextProvider>
+
+          <Route path="/store/:productId">
+            <ProductDetail />
+          </Route>
+        </ProductContextProvider>
+      </Switch>
+
       <Route path="/about">
         <About />
       </Route>
+
       <Route path="/contact">
         <ContactUs />
       </Route>

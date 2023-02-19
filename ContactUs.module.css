@@ -2,21 +2,19 @@
     margin: auto;
     border: 2px solid gray;
     padding: 40px;
-    width: 500px;
+    width: 600px;
     border-radius: 10px;
     margin-top: 50px;
     margin-bottom: 50px;
     box-shadow: 0 0 7px gray;
     border: none;
 }
-
 .form label {
     display: block;
     font-size: 30px;
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
 }
-
 .form input {
     padding: 5px;
     margin-bottom: 1em;
@@ -24,11 +22,9 @@
     font-size: 18px;
     border-radius: 5px;
 }
-
 .form div {
     text-align: center;
 }
-
 .form button {
     font-size: 30px;
     font-weight: bold;
@@ -37,9 +33,17 @@
     border-radius: 5px;
     background-color: #18b2ee;
     border: none;
-    box-shadow: 0 0 10px rgb(255, 222, 58);
 }
 
 .form button:active {
     transform: scale(0.95);
 }
+
+.contact h1 {
+    margin: 0;
+    padding: 100px 0 20px 0;
+    background-color: gray;
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+  }

@@ -1,8 +1,6 @@
 import React from "react";
-
 import classes from "./Home.module.css";
 import TourInfo from "./TourInfo";
-
 const Home = () => {
   const tourInfo = [
     { date: "JUL 16", place: "DETROIT, MI", venue: "DTE ENERGY MUSIC THEATRE" },
@@ -12,13 +10,12 @@ const Home = () => {
     { date: "AUG 2", place: "LAS VEGAS, NV", venue: "T-MOBILE ARENAE" },
     { date: "AUG 7", place: "CONCORD, CA", venue: "CONCORD PAVILIONE" },
   ];
-
   const tourInfoList = tourInfo.map((tour) => (
     <TourInfo tour={tour} key={Math.random().toString()} />
   ));
 
   return (
-    <section>
+    <section className={classes.section}>
       <div className={classes.div}>
         <h1>The Generics</h1>
         <button>Get Our Latest Album</button>
@@ -29,5 +26,4 @@ const Home = () => {
     </section>
   );
 };
-
 export default Home;

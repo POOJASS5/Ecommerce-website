@@ -1,9 +1,8 @@
-h2 {
+.div h2 {
 
-    font-family:cursive;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    padding: 20px;
-    font-size: 30px;
 }
 
 .musicList {
