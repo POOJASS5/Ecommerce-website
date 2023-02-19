@@ -1,40 +1,52 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import classes from "./Login.module.css";
 import loginContext from "../store/login-context";
 
 const Login = () => {
+  const [loginAccount, setCreateAccount] = useState(true);
   const loginCtx = useContext(loginContext);
   const history = useHistory();
   const email = useRef();
   const password = useRef();
 
+  const createAccountHandler = () => {
+    setCreateAccount((previousState) => {
+      return !previousState;
+    });
+  };
   const loginHandler = async (event) => {
     event.preventDefault();
 
+    let url;
+    if (loginAccount) {
+      url =
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBGBdwPPF1sz8pvJ5AR7X8L43M-MkxD5Y8";
+    } else {
+      url =
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBGBdwPPF1sz8pvJ5AR7X8L43M-MkxD5Y8";
+    }
+
     try {
-      const res = await fetch(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBGBdwPPF1sz8pvJ5AR7X8L43M-MkxD5Y8",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            email: email.current.value,
-            password: password.current.value,
-            returnSecureToken: true,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+          email: email.current.value,
+          password: password.current.value,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res.ok) {
-        history.replace("/store");
         const data = await res.json();
         localStorage.setItem("tokenId", data.idToken);
         loginCtx.login(data.idToken);
         // console.log(data);
+        history.replace("/product");
       } else {
         const data = await res.json();
         throw new Error(data.error.message);
@@ -43,7 +55,6 @@ const Login = () => {
       alert(err.message);
     }
   };
-
   return (
     <div className={classes.login}>
       <h1>The Generics</h1>
@@ -53,11 +64,17 @@ const Login = () => {
         <label htmlFor="password">Password</label>
         <input id="password" type="password" ref={password} />
         <div>
-          <button type="submit">Login</button>
+          <button type="submit">
+            {loginAccount ? "Login" : "Create Account"}
+          </button>
         </div>
+        <p onClick={createAccountHandler}>
+          {loginAccount
+            ? "Create a new Account"
+            : "Login with existing account"}
+        </p>
       </form>
     </div>
   );
 };
-
 export default Login;

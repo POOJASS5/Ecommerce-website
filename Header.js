@@ -1,9 +1,16 @@
 
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import loginContext from "../store/login-context";
 import classes from "./Header.module.css";
 import HeaderCartButton from "./HeaderCartButton";
+
 const Header = () => {
+  const loginCtx = useContext(loginContext);
+
+  const logoutHandler = () => {
+    loginCtx.logout();
+  };
   return (
     <React.Fragment>
       <header className={classes.header}>
@@ -15,8 +22,8 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName={classes.active} to="/store">
-                STORE
+              <NavLink activeClassName={classes.active} to="/product">
+                PRODUCT
               </NavLink>
             </li>
             <li>
@@ -25,15 +32,24 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName={classes.active} to="/login">
-                LOGIN
-              </NavLink>
-            </li>
-            <li>
               <NavLink activeClassName={classes.active} to="/contact">
                 CONTACT
               </NavLink>
             </li>
+            {!loginCtx.isloggedIn && (
+              <li className={classes.login}>
+                <NavLink activeClassName={classes.active} to="/login">
+                  LOGIN
+                </NavLink>
+              </li>
+            )}
+            {loginCtx.isloggedIn && (
+              <li className={classes.logout} onClick={logoutHandler}>
+                <NavLink activeClassName={classes.active} to="/login">
+                  LOGOUT
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
         <div>
