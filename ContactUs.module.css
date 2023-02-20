@@ -9,14 +9,16 @@
     box-shadow: 0 0 7px gray;
     border: none;
 }
+
 .form label {
     display: block;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
 }
+
 .form input {
-    padding: 5px;
+    padding: 10px;
     margin-bottom: 1em;
     width: 96%;
     font-size: 18px;
@@ -29,16 +31,14 @@
     font-size: 30px;
     font-weight: bold;
     margin-top: 30px;
-    padding: 5px 20px 5px 20px;
-    border-radius: 5px;
+    padding: 5px 40px 5px 40px;
+    border-radius: 25px;
     background-color: #18b2ee;
     border: none;
 }
-
 .form button:active {
     transform: scale(0.95);
 }
-
 .contact h1 {
     margin: 0;
     padding: 100px 0 20px 0;

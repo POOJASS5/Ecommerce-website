@@ -1,9 +1,6 @@
 .div {
     display: flex;
     justify-content: space-around;
-    /* border: 2px solid gray;
-    background-color: #f4f4f4; */
-    margin: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
@@ -14,8 +11,8 @@
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     flex-basis: 18%;
-    /* border-top: 2px solid gray;
-    border-bottom: 2px solid gray; */
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
     padding: 10px 0 10px 0;
 }
 
@@ -26,7 +23,6 @@
     flex-basis: 30%;
     border: 2px solid black;
 }
-
 .div button {
     flex-basis: 16%;
     margin-left: 10px;

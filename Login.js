@@ -1,13 +1,12 @@
 import React, { useRef, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-
 import classes from "./Login.module.css";
 import loginContext from "../store/login-context";
 
 const Login = () => {
   const [loginAccount, setCreateAccount] = useState(true);
-  const loginCtx = useContext(loginContext);
   const history = useHistory();
+  const loginCtx = useContext(loginContext);
   const email = useRef();
   const password = useRef();
 
@@ -18,7 +17,6 @@ const Login = () => {
   };
   const loginHandler = async (event) => {
     event.preventDefault();
-
     let url;
     if (loginAccount) {
       url =
@@ -27,7 +25,6 @@ const Login = () => {
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBGBdwPPF1sz8pvJ5AR7X8L43M-MkxD5Y8";
     }
-
     try {
       const res = await fetch(url, {
         method: "POST",
@@ -42,11 +39,11 @@ const Login = () => {
       });
 
       if (res.ok) {
-        const data = await res.json();
-        localStorage.setItem("tokenId", data.idToken);
-        loginCtx.login(data.idToken);
-        // console.log(data);
         history.replace("/product");
+        const data = await res.json();
+        const convertedData = JSON.stringify(data);
+        localStorage.setItem("tokenId", convertedData);
+        loginCtx.login(data);
       } else {
         const data = await res.json();
         throw new Error(data.error.message);
